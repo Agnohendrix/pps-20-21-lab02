@@ -46,4 +46,26 @@ object HelloScala extends App{
   println(nonEmpty(" "))
 
 
+  //2b 4 non-curried def
+  def isInFormXLEYLEZ(x: Int, y: Int, z: Int) : Boolean = x match {
+    case x if (x<=y && y<=z) => true
+    case _ => false
+  }
+  println("Non-curried def")
+  println("IS in form x<y<z? " + isInFormXLEYLEZ(1,2,3))
+  println("IS in form x<y<z? " + isInFormXLEYLEZ(1,2,1))
+
+  //2b 4 curried def
+  def curriedIsInFormXLEYLEZ(x: Int)(y: Int)(z: Int) : Boolean = x match {
+    case x if (x<=y && y<=z) => true
+    case _ => false
+  }
+
+  val curriedArgs = curriedIsInFormXLEYLEZ(1) _
+  println("Curried def")
+  println("IS in form x<y<z? " + curriedArgs(2)(3))
+  println("IS in form x<y<z? " + curriedArgs(2)(1))
+
+
+
 }
